@@ -1,4 +1,22 @@
-## v1.8 [unreleased]
+## v1.9 [unreleased]
+
+### Features
+
+- [#4686](https://github.com/influxdata/telegraf/pull/4686): Add replace function to strings processor.
+- [#4754](https://github.com/influxdata/telegraf/pull/4754): Query servers in parallel in dns_query input.
+- [#4753](https://github.com/influxdata/telegraf/pull/4753): Add ability to define a custom service name when installing as a Windows service.
+
+## v1.8.1 [unreleased]
+
+### Bugfixes
+
+- [#4750](https://github.com/influxdata/telegraf/pull/4750): Fix hardware_type may be truncated in sqlserver input.
+- [#4723](https://github.com/influxdata/telegraf/issues/4723): Improve performance in basicstats aggregator.
+- [#4747](https://github.com/influxdata/telegraf/pull/4723): Add hostname to TLS config for SNI support.
+- [#4675](https://github.com/influxdata/telegraf/issues/4675): Don't add tags with empty values to opentsdb output.
+- [#4765](https://github.com/influxdata/telegraf/pull/4765): Fix panic during network error in vsphere input.
+
+## v1.8 [2018-09-21]
 
 ### New Inputs
 
@@ -7,7 +25,7 @@
 - [filecount](./plugins/inputs/filecount/README.md) - Contributed by @sometimesfood
 - [file](./plugins/inputs/file/README.md) - Contributed by @maxunt
 - [icinga2](./plugins/inputs/icinga2/README.md) - Contributed by @mlabouardy
-- [kibana](./plugins/inputs/icinga2/README.md) - Contributed by @lpic10
+- [kibana](./plugins/inputs/kibana/README.md) - Contributed by @lpic10
 - [pgbouncer](./plugins/inputs/pgbouncer/README.md) - Contributed by @nerzhul
 - [temp](./plugins/inputs/temp/README.md) - Contributed by @pytimer
 - [tengine](./plugins/inputs/tengine/README.md) - Contributed by @ertaoxu
@@ -28,12 +46,14 @@
 ### New Outputs
 
 - [azure_monitor](./plugins/outputs/azure_monitor/README.md) - Contributed by @influxdata
+- [influxdb_v2](./plugins/outputs/influxdb_v2/README.md) - Contributed by @influxdata
 
 ### New Parsers
 
-- [csv](/docs/DATA_FORMATS_INPUT.md#csv) - Contributed by @maxunt
-- [grok](/docs/DATA_FORMATS_INPUT.md#grok) - Contributed by @maxunt
-- [logfmt](/docs/DATA_FORMATS_INPUT.md#logfmt) - Contributed by @Ayrdrie & @maxunt
+- [csv](/plugins/parsers/csv/README.md) - Contributed by @maxunt
+- [grok](/plugins/parsers/grok/README.md) - Contributed by @maxunt
+- [logfmt](/plugins/parsers/logfmt/README.md) - Contributed by @Ayrdrie & @maxunt
+- [wavefront](/plugins/parsers/wavefront/README.md) - Contributed by @puckpuck
 
 ### New Serializers
 
@@ -105,6 +125,7 @@
 - [#4667](https://github.com/influxdata/telegraf/pull/4667): Align metrics window to interval in cloudwatch input.
 - [#4642](https://github.com/influxdata/telegraf/pull/4642): Improve Azure Managed Instance support + more in sqlserver input.
 - [#4682](https://github.com/influxdata/telegraf/pull/4682): Allow alternate binaries for iptables input plugin.
+- [#4645](https://github.com/influxdata/telegraf/pull/4645): Add influxdb_v2 output plugin.
 
 ### Bugfixes
 
@@ -114,6 +135,12 @@
 - [#4520](https://github.com/influxdata/telegraf/issues/4520): Document all supported cli arguments.
 - [#4674](https://github.com/influxdata/telegraf/pull/4674): Log access denied opening a service at debug level in win_services.
 - [#4588](https://github.com/influxdata/telegraf/issues/4588): Add support for Kafka 2.0.
+- [#4087](https://github.com/influxdata/telegraf/issues/4087): Fix nagios parser does not support ranges in performance data.
+- [#4088](https://github.com/influxdata/telegraf/issues/4088): Fix nagios parser does not strip quotes from performance data.
+- [#4688](https://github.com/influxdata/telegraf/issues/4688): Fix null value crash in postgresql_extensible input.
+- [#4681](https://github.com/influxdata/telegraf/pull/4681): Remove the startup authentication check from the cloudwatch output.
+- [#4644](https://github.com/influxdata/telegraf/issues/4644): Support tailing files created after startup in tail input.
+- [#4706](https://github.com/influxdata/telegraf/issues/4706): Fix csv format configuration loading.
 
 ## v1.7.4 [2018-08-29]
 
