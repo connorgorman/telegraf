@@ -106,6 +106,14 @@ emitted from the input plugin.
 
 ### Output Configuration
 
+- **flush_interval**: The maximum time between flushes.  Use this setting to
+  override the agent `flush_interval` on a per plugin basis.
+- **metric_batch_size**: The maximum number of metrics to send at once.  Use
+  this setting to override the agent `metric_batch_size` on a per plugin basis.
+- **metric_buffer_limit**: The maximum number of unsent metrics to buffer.
+  Use this setting to override the agent `metric_buffer_limit` on a per plugin
+  basis.
+
 The [metric filtering](#metric-filtering) parameters can be used to limit what metrics are
 emitted from the output plugin.
 
@@ -192,11 +200,13 @@ they have passed the `fieldpass` test.
 An array of glob pattern strings.  Only tags with a tag key matching one of
 the patterns are emitted.  In contrast to `tagpass`, which will pass an entire
 metric based on its tag, `taginclude` removes all non matching tags from the
-metric.
+metric.  Any tag can be filtered including global tags and the agent `host`
+tag.
 
 - **tagexclude**:
 The inverse of `taginclude`. Tags with a tag key matching one of the patterns
-will be discarded from the metric.
+will be discarded from the metric.  Any tag can be filtered including global
+tags and the agent `host` tag.
 
 ### Input Configuration Examples
 
